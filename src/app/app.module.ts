@@ -1,26 +1,39 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './screens/home/home.component';
-import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './screens/login/login.component';
+import { AppRoutingModule , routingComponents} from './app-routing.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http';
+import { TableComponent } from './screens/table/table.component'
+import { LottieModule } from 'ngx-lottie'; // add this line
+
+
+export function playerFactory() { // add this line
+  return import('lottie-web'); // add this line
+} // add this line
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
-    LoginComponent
+    routingComponents,
+    TableComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule, 
+    FormsModule,
+    HttpClientModule,
+    LottieModule.forRoot({ player: playerFactory})
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }
+export class CustomModule { }

@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="./assets/imagenes/Logo.PNG" id="icon" alt="FinComp"/>
+        </div>
+
+        <!-- Login Form -->
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
+            <input type="text" id="login" class="fadeIn second"  placeholder="usuario" formControlName = "usuario">
+            <input type="password" id="password" class="fadeIn third"  placeholder="Contraseña" formControlName = "password">
+            <input type="submit" class="fadeIn fourth" value="Ingresar">
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a class="underlineHover" href="#">Olvidaste tu contraseña?</a>
+        </div>
+
+    </div>
+</div>

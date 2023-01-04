@@ -1,1 +1,31 @@
-<p>home works!</p>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="./assets/imagenes/Logo.PNG" id="icon" alt="FinComp" />
+        </div>
+
+        <!-- Login Form -->
+        <form [formGroup]="searchForm" (ngSubmit)="onSearch(searchForm.value)">
+            <input type="text" id="login" class="fadeIn second" placeholder="Nombre" formControlName="name">
+            <input type="text" id="lastName" class="fadeIn third" placeholder="Apellido" formControlName="lastName">
+            <input type="number" id="identificationNumber" class="fadeIn third" placeholder="Número de identificación"
+                formControlName="identificationNumber">
+            <input type="submit" class="fadeIn fourth" value="Buscar">
+        </form>
+
+
+    </div>
+</div>
+
+<div class="overlay" *ngIf="load">
+
+    <div class="spinner ">
+        <img src="http://gifimage.net/wp-content/uploads/2018/04/login-gif-11.gif" />
+    </div>
+
+</div>
+
+<app-footer></app-footer>
